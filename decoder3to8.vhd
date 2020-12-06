@@ -9,11 +9,12 @@ ENTITY decoder3to8 IS
 END decoder3to8;
 
 architecture behavior of decoder3to8 is
+begin
     process(x, en)
     begin
-        y <= "00000000"
+        y <= "00000000";
         if (en = '1') then
-            case( x ) is
+            case x  is
             
                 when "000" => y(0) <= '1';
                 when "001" => y(1) <= '1';
@@ -23,8 +24,10 @@ architecture behavior of decoder3to8 is
                 when "101" => y(5) <= '1';
                 when "110" => y(6) <= '1';
                 when "111" => y(7) <= '1';
-                when others => y <= "00000000"
+                when others => y <= "00000000";
             
             end case ;
         end if ;
-    end behavior;
+    end process;
+end behavior;
+

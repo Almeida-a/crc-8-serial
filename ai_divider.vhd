@@ -11,7 +11,7 @@ END ai_divider;
 
 architecture structural of ai_divider is
 
-    signal s_en is std_logic_vector(7 downto 0);
+    signal s_en: std_logic_vector(7 downto 0);
 
     component gateAnd2
         port(   x1: in std_logic;
