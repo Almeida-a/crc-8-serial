@@ -30,7 +30,6 @@ begin
             when "1101" => o <= i(13);
             when "1110" => o <= i(14);
             when "1111" => o <= i(15);
-            when others => y <= "Z";
         
         end case ;
     end process;

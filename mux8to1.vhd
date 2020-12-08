@@ -10,7 +10,7 @@ END mux8to1;
 
 architecture behavior of mux8to1 is
 begin
-    process(x)
+    process(s, i)
     begin
         case( s ) is
         
@@ -22,7 +22,6 @@ begin
             when "101" => o <= i(5);
             when "110" => o <= i(6);
             when "111" => o <= i(7);
-            when others => y <= "Z";
         
         end case ;
     end process;

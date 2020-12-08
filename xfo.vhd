@@ -10,18 +10,18 @@ END xfo;
 
 ARCHITECTURE structure OF xfo IS
   COMPONENT flipflopT
-    PORT (T, clk: IN STD_LOGIC;
+    PORT (clk, T: IN STD_LOGIC;
           nrst: IN STD_LOGIC;
-          s: OUT STD_LOGIC);
+          Q: OUT STD_LOGIC);
   END COMPONENT;
 BEGIN
-  fft1: flipflopT PORT MAP (a(7), clk, nRst, r(7));
-  fft2: flipflopT PORT MAP (a(6), clk, nRst, r(6));
-  fft3: flipflopT PORT MAP (a(5), clk, nRst, r(5));
-  fft4: flipflopT PORT MAP (a(4), clk, nRst, r(4));
-  fft5: flipflopT PORT MAP (a(3), clk, nRst, r(3));
-  fft6: flipflopT PORT MAP (a(2), clk, nRst, r(2));
-  fft7: flipflopT PORT MAP (a(1), clk, nRst, r(1));
-  fft8: flipflopT PORT MAP (a(0), clk, nRst, r(0));
+  fft1: flipflopT PORT MAP (clk=>clk, T=>a(7), nrst=>nRst, Q=>r(7));
+  fft2: flipflopT PORT MAP (clk=>clk, T=>a(6), nrst=>nRst, Q=>r(6));
+  fft3: flipflopT PORT MAP (clk=>clk, T=>a(5), nrst=>nRst, Q=>r(5));
+  fft4: flipflopT PORT MAP (clk=>clk, T=>a(4), nrst=>nRst, Q=>r(4));
+  fft5: flipflopT PORT MAP (clk=>clk, T=>a(3), nrst=>nRst, Q=>r(3));
+  fft6: flipflopT PORT MAP (clk=>clk, T=>a(2), nrst=>nRst, Q=>r(2));
+  fft7: flipflopT PORT MAP (clk=>clk, T=>a(1), nrst=>nRst, Q=>r(1));
+  fft8: flipflopT PORT MAP (clk=>clk, T=>a(0), nrst=>nRst, Q=>r(0));
   
 END structure;

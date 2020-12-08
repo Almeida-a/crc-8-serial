@@ -11,7 +11,7 @@ END rserializer;
 ARCHITECTURE structure OF rserializer IS
 
     signal s_count: std_logic_vector(2 downto 0);
-    signal s_r    : std_logic;
+    --signal s_r    : std_logic;
 
   COMPONENT flipflopD
     PORT (clk, nRst: IN STD_LOGIC;
@@ -32,8 +32,8 @@ ARCHITECTURE structure OF rserializer IS
 
 BEGIN
 
-  counter: reverse_counter_7_0 PORT MAP (clk, nRst, s_count);
-  mux: mux8to1 PORT MAP (count, rpar, s_r);
-  ffd: flipflopD PORT MAP(clk, nRst, s_r, rser);
+  counter: reverse_counter_7_0 PORT MAP (clk=>clk, nRst=>nRst, count=>s_count);
+  mux: mux8to1 PORT MAP (s=>s_count, i=>rpar, o=>rser);
+  --ffd: flipflopD PORT MAP(clk=>clk, nRst=>nRst, D=>s_r, Q=>rser);
   
 END structure;

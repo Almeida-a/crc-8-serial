@@ -1,5 +1,6 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
+USE ieee.numeric_std.all;
 
 ENTITY reverse_counter_15_0 IS
   PORT (clk: IN STD_LOGIC;
@@ -8,14 +9,24 @@ ENTITY reverse_counter_15_0 IS
 END reverse_counter_15_0;
 
 ARCHITECTURE behavior OF reverse_counter_15_0 IS
+
+	signal s_count: unsigned(3 downto 0);
+
 BEGIN
   PROCESS (clk, nRst)
   BEGIN
     IF (nRst = '0')
-        THEN count <= "1111";
-        ELSIF (clk = '1') AND (clk'EVENT)
-            THEN count <= count - 1;
+        THEN s_count <= "1111";
+        ELSIF (clk = '1') AND (clk'EVENT) THEN
+            if(s_count = "0000")
+            THEN s_count <= s_count;
+					else
+					s_count <= s_count - 1;
+				END IF;
 
 	 END IF;
   END PROCESS;
+  
+  count <= std_logic_vector(s_count);
+  
 END behavior;
